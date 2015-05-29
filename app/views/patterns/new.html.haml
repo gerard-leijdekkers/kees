@@ -1,0 +1,8 @@
+= render 'form'
+
+- if @patterns.present?
+  %table
+    - @patterns.each do |p|
+      %tr
+        %td= p.body
+        %td= p.created_at

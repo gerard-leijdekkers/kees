@@ -1,0 +1,25 @@
+# detect `$rvm_path`:
+if [ -z "${rvm_path:-}" ] && [ -x "${HOME:-}/.rvm/bin/rvm" ]
+  then rvm_path="${HOME:-}/.rvm"
+fi
+if [ -z "${rvm_path:-}" ] && [ -x "/usr/local/rvm/bin/rvm" ]
+  then rvm_path="/usr/local/rvm"
+fi
+
+# Load rvm:
+if [ -f "$rvm_path/scripts/rvm" ]; then
+  source "$rvm_path/scripts/rvm"
+fi
+
+# Switch to project ruby version/gemset:
+if [ -f ".rvmrc" ]; then
+  source ".rvmrc"
+fi
+
+if [ -f ".ruby-version" ] || [ -f ".ruby-gemset" ]; then
+  if [ -f ".ruby-gemset" ]; then
+    rvm use `cat .ruby-version`@`cat .ruby-gemset`
+  else  
+    rvm use `cat .ruby-version`
+  fi
+fi
