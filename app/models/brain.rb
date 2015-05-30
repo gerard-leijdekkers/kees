@@ -5,9 +5,9 @@ class Brain
   
   private
   
-  def find_neurons(pattern)
+  def self.find_neurons(pattern)
     neurons = []
-    pattern.each_char do |char|
+    pattern.body.each_char do |char|
       CharacterReceptor.fire_for(char)
     end
   end

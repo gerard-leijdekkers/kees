@@ -39,5 +39,6 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 gem 'formtastic'
 gem 'haml-rails'
+gem 'colorize'
 
 gem 'rspec-rails'

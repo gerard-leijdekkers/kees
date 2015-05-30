@@ -3,7 +3,7 @@ class PatternsController < ApplicationController
   
   def new
     @pattern = Pattern.new
-    @patterns = Pattern.all
+    @patterns = Pattern.all.order("id DESC")
   end
   
   def create
@@ -12,7 +12,7 @@ class PatternsController < ApplicationController
       Brain.process_pattern(@pattern)
       redirect_to action: :new
     else
-      flash[:error] = "unable to store pattern"
+      flash[:error] = "unable to store pattern".colorize(:red)
       render :new
     end
   end
