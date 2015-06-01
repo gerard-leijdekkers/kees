@@ -1,4 +1,6 @@
 class Brain
+  
+  # pattern input
   def self.process_pattern(pattern)
     neurons = find_neurons(pattern)
   end
