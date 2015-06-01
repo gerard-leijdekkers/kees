@@ -11,7 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150529072711) do
+ActiveRecord::Schema.define(version: 20150601065810) do
+
+  create_table "character_receptors", force: true do |t|
+    t.string  "character", null: false
+    t.integer "neuron_id", null: false
+  end
 
   create_table "neurons", force: true do |t|
     t.datetime "created_at"

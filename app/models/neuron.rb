@@ -1,7 +1,9 @@
 class Neuron < ActiveRecord::Base
   
-  has_many :synapses, foreign_key: :from
-  has_many :neurons, through: :synapses
+
+  has_many :axons, class: :synaps, foreign_key: :from
+  has_many :dendrites, class: :synaps, foreign_key: :to
+  has_many :neurons, through: :axons
   
   def self.fire(id)
     neuron = Neuron.find_by_id(id)
