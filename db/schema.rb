@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20150601065810) do
     t.integer  "to"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "weight",     default: 5
+    t.integer  "weight",     default: 0
   end
 
 end
