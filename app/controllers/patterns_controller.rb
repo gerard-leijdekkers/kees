@@ -3,7 +3,7 @@ class PatternsController < ApplicationController
   
   def new
     @pattern = Pattern.new
-    @patterns = Pattern.all.order("id DESC")
+    @patterns = Pattern.all.order("id DESC").limit(20)
   end
   
   def create
