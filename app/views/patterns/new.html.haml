@@ -1,5 +1,7 @@
 = render 'form'
 
+= "active: " + Brain.active_neurons.join('-')
+
 - if @patterns.present?
   %table
     - @patterns.each do |p|
