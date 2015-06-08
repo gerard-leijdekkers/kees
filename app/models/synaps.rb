@@ -17,4 +17,9 @@ class Synaps < ActiveRecord::Base
       neuron.fire
     end
   end
+  
+  def increase_weight
+    update_attribute(:weight, weight + 1)
+  end
+  
 end

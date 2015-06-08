@@ -9,7 +9,7 @@ class Neuron < ActiveRecord::Base
   def fire
     logger.info "Neuron #{id} is firing".colorize(:green)
 
-    Brain.add_active_neuron self
+    Brain.process_activated_neuron self
     
     axons.each do |synaps|
       synaps.signal_forward
@@ -23,6 +23,6 @@ class Neuron < ActiveRecord::Base
   end
   
   def to_char
-    character_receptor.try(:character)
+    character_receptor.try(:character) || id
   end
 end
